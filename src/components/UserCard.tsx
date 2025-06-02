@@ -1,4 +1,4 @@
-import { Box, Card, CardContent, CardMedia, Typography } from '@mui/material';
+import { Box, Card, CardContent, CardMedia, Typography, Button } from '@mui/material';
 import { useGitHub } from '../context/Githubusercontext';
 
 function UserCard() {
@@ -21,6 +21,9 @@ function UserCard() {
           borderRadius: 4,
           boxShadow: 6,
           backgroundColor: '#f5f5f5',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
         }}
       >
         <CardMedia
@@ -28,7 +31,11 @@ function UserCard() {
           height="200"
           image={userdata.avatar_url || 'https://via.placeholder.com/200'}
           alt={userdata.name || 'GitHub user avatar'}
-          sx={{ objectFit: 'cover' }}
+          sx={{ width: 150,
+            height: 150,
+            borderRadius: '50%',
+            mt: 3,
+            objectFit: 'cover', }}
         />
         <CardContent>
           <Typography variant="h6" component="div" gutterBottom>
@@ -47,6 +54,17 @@ function UserCard() {
             </Typography>
           )}
         </CardContent>
+        <Box sx={{ mb: 2 }}>
+          <Button
+            variant="contained"
+            color="primary"
+            href={userdata.html_url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View Profile
+          </Button>
+        </Box>
       </Card>
     </Box>
   );
