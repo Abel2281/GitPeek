@@ -7,6 +7,7 @@ export interface GithubUser {
     avatar_url: string;
     public_repos: number;
     bio: string;
+    html_url: string;
 }
 
 interface GithubContextType {
